@@ -31,6 +31,8 @@ class MyHomePage extends StatelessWidget {
       date: DateTime.now(),
     ),
   ];
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   MyHomePage({super.key});
 
@@ -41,7 +43,6 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           const SizedBox(
             width: double.infinity,
@@ -49,6 +50,37 @@ class MyHomePage extends StatelessWidget {
               color: Colors.blue,
               elevation: 5,
               child: Text('CHART!'),
+            ),
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextField(
+                    decoration: const InputDecoration(
+                      labelText: 'Title',
+                    ),
+                    controller: titleController,
+                  ),
+                  TextField(
+                    decoration: const InputDecoration(
+                      labelText: 'Amount',
+                    ),
+                    controller: amountController,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                    },
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.purple,
+                    ),
+                    child: const Text('Add transaction'),
+                  )
+                ],
+              ),
             ),
           ),
           Column(
